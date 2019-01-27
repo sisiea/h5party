@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <title>报名</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+@media only screen and (min-width:320px) and (max-width:320px) {
+  html {
+      font-size: 85.33px
+  }
+}
+
+@media only screen and (min-width:360px) {
+  html {
+      font-size: 96px
+  }
+}
+
+@media only screen and (min-width:375px) {
+  html {
+      font-size: 100px
+  }
+}
+
+@media only screen and (min-width:384px) {
+  html {
+      font-size: 102.4px
+  }
+}
+
+@media only screen and (min-width:412px) {
+  html {
+      font-size: 109.87px
+  }
+}
+
+@media only screen and (min-width:414px) {
+  html {
+      font-size: 110.4px
+  }
+}
+
+@media only screen and (min-width:600px) {
+  html {
+      font-size: 204.8px
+  }
+}
+
+.page-wrapper {
+  height: 100vh;
+  background: url('./bg.jpg');
+  background-size: 100% 100%;
+  position: relative;
+  background-repeat: no-repeat;
+}
+
+.join-btn {
+  width: 2rem;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url('./btn.png');
+  height: 0.6rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.mask {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .3);
+  position: relative;
+}
+
+.mask.active {
+  display: block;
+}
+
+.modal {
+  box-sizing: border-box;
+  width: 3.5rem;
+  height: 100vh;
+  padding: 0.3rem 0.5rem 0.15rem;
+  background: url('./modal.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-title {
+  margin: 0 auto 0.2rem;
+  width: 0.9rem;
+  background: url(./modalTitle.png);
+  height: 0.2rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.location, .time {
+    font-size: 0.16rem;
+}
+.location {
+    margin-bottom: 0.05rem;
+}
+
+.name-input,.phone-input,.school-input {
+  display: block;
+  width: 100%;
+  height: 0.3rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.04rem;
+  border: 1px solid #000;
+  font-size: 0.2rem;
+  text-indent: 0.12rem;
+  font-family: STKaiti;
+}
+
+.summit-btn {
+  margin: 0.1rem auto 0;
+  width: 2rem;
+  height: 0.6rem;
+  background: url('./summit.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.qr-code {
+  margin: 0.2rem auto 0.1rem;
+  width: 1rem;
+  height: 1rem;
+  background: url('./qrCode.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.wish-text {
+  width: 100%;
+  text-align: center;
+  color: #9e9b99;
+  font-size: 0.15rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* transform: translateY(-50%); */
+}
+
+.slide-area {
+  width: 2.5rem;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slide-title {
+  font-size: 0.16rem;
+  margin-bottom: 0.1rem;
+  text-shadow: 0 0 4px #fff; /*描边颜色自己定义*/
+}
+
+.slide {
+  width: 2.5rem;
+  background: url('./slideBg.png');
+  height: 1.2rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0.1rem 0.2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+.slide li {
+  font-size: 0.14rem;
+  color: #700000;
+  list-style: none;
+  margin-right: 0.15rem;
+  margin-bottom: 0.15rem;
+}
+html {
+  font-family: STKaiti;
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="app" class="page-wrapper">
+        <div id="joinBtn" class="join-btn">
+        </div>
+        <div class="slide-area">
+            <div class="slide-title">已报名同学</div>
+            <div id="slide" class="slide"></div>
+        </div>
+        <div id="mask" class="mask">
+            <div class="modal">
+                <img class="close-btn" id="closeBtn" src='./close.png' alt='关闭'>
+                <div class="modal-title"></div>
+                <div class="time">时间：2月6号晚上7:30-9:30</div>
+                <div class="location">地点：阳江市第一中学高三阶梯电教室</div>
+                <input id="nameInput" class="name-input" type='text' placeholder="姓名">
+                <input id="phoneInput" class="phone-input" type='text' placeholder="电话">
+                <input id="schoolInput" class="school-input" type='text' placeholder="工作所在地">
+                <div id="summitBtn" class="summit-btn"></div>
+                <div class="qr-code"></div>
+                <div class="wish-text">进来会一会老朋友吧（微信扫码）</div>
+            </div>
+        </div>
+    </div>
+    <!-- LeanCloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        // LeanCloud - 初始化 - 将这里的 APP_ID 和 APP_KEY 替换成自己的应用数据
+        // https://leancloud.cn/docs/sdk_setup-js.html#初始化
+        var APP_ID = 'vvfkzsnHX0kRDYxqEULlziNe-gzGzoHsz';
+        var APP_KEY = 'jSUzmr7lOp4Y9VbKqySCMTMO';
+        AV.init({
+            appId: APP_ID,
+            appKey: APP_KEY
+        });
+
+
+        var Student = AV.Object.extend('Student');
+        function submit() {
+        var name = $('#nameInput').val().trim();
+        var phone = $('#phoneInput').val().trim();
+        var school = $('#schoolInput').val().trim();
+        var student = new Student();
+        student.set('name', name);
+        student.set('phone', phone);
+        student.set('school', school);
+        student.save().then(function() {
+            var result = '报名成功';
+            if(name === '郑冬意') {
+                result = '荡意，早茶舍约定你哦~'
+            } else if(name === '陈宏柏') {
+                result = 'PNS，早茶舍约定你哦~'
+            } else if(name === '区钰雯') {
+                result = '大师，早茶舍约定你哦~'
+            } else if(name === '许汝琪') {
+                result = '如期，早茶舍约定你哦~'
+            } else if(name === '何亦伦') {
+                result = '老板，早茶舍约定你哦~'
+            } else if(name === '许艾琪') {
+                result = '经理，早茶舍约定你哦~'
+            } else if(name === '司徒荣') {
+                result = '徒荣，早茶舍约定你哦~'
+            } else if(name === '孙悦洋') {
+                result = '孙总，早茶舍约定你哦~'
+            } else if(name === '沙广惠') {
+                result = '沙沙，早茶舍约定你哦~'
+            } else if(name === '利芊芊') {
+                result = '利mu，早茶舍约定你哦~'
+            } else if(name === '阮小航') {
+                result = '航煤，早茶舍约定你哦~'
+            } else if(name === '梁明礼') {
+                result = 'li，早茶舍约定你哦~你真的能来吗？'
+            }
+            alert(result);
+        }, function(error) {
+            alert(JSON.stringify(error));
+        });
+        }
+
+        function query() {
+        var query = new AV.Query('Student');
+        query.exists('name');
+        query.find().then(function (results) {
+            console.log(results)
+            var $slide = $('#slide');
+            var existArr = [];
+            for(var i =0 ; i <results.length ; i+=1) {
+                var insertName = results[i].attributes.name;
+                if(existArr.indexOf(insertName) < 0) {
+                    $slide.append($('<li class="join-name">'+ insertName +'</li>'))
+                    existArr = existArr.concat(insertName)
+                }
+            }
+        }, function (error) {
+        });
+        }
+
+        $(function() {
+        // 绑定事件
+        $("#closeBtn").on('click', function() {
+            $('#mask').removeClass('active')
+        })
+        $('#joinBtn').on('click', function() {
+            $('#mask').addClass('active')
+        })
+        $("#summitBtn").on('click', function(e) {
+            console.log('click');
+            var name = $('#nameInput').val().trim();
+            if(!name || name === '') {
+                alert("出得来行，名字要填的！！");
+                return
+            }
+            e.preventDefault();
+            submit();
+        });
+
+        // 查询
+        query();
+        });
+
+    </script>
+</head>
+</body>
+</html>
