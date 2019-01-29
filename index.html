@@ -262,14 +262,14 @@ html {
             <div class="modal">
                 <img class="close-btn" id="closeBtn" src='https://gw.alipayobjects.com/mdn/credit_1212/afts/img/A*dGQgRbDH3QkAAAAAAAAAAABjAQAAAQ/original' alt='关闭'>
                 <div class="modal-title"></div>
-                <div class="time">时间：2月6号晚上7:30-9:30</div>
+                <div class="time">时间：2月7号下午2:30-5:00</div>
                 <div class="location">地点：阳江市第一中学高三阶梯电教室</div>
                 <input id="nameInput" class="name-input" type='text' placeholder="姓名">
                 <input id="phoneInput" class="phone-input" type='text' placeholder="电话">
                 <input id="schoolInput" class="school-input" type='text' placeholder="工作所在地">
                 <div id="summitBtn" class="summit-btn"></div>
                 <div class="qr-code"></div>
-                <div class="wish-text">进来会一会老朋友吧（微信扫码）</div>
+                <div class="wish-text">微信扫码进群</div>
             </div>
         </div>
     </div>
@@ -328,6 +328,8 @@ html {
                 result = 'li，早茶舍约定你哦~你真的能来吗？'
             }
             alert(result);
+            $('#mask').removeClass('active');
+            query();
         }, function(error) {
             alert(JSON.stringify(error));
         });
@@ -339,6 +341,7 @@ html {
         query.find().then(function (results) {
             console.log(results)
             var $slide = $('#slide');
+            $slide.empty();
             var existArr = [];
             for(var i =0 ; i <results.length ; i+=1) {
                 var insertName = results[i].attributes.name;
