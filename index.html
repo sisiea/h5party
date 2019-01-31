@@ -300,6 +300,10 @@ html {
         var Student = AV.Object.extend('Student');
         function submit() {
         var name = $('#nameInput').val().trim();
+        if(name === '刘绍鹏') {
+            alert('Everybody is here except LiuShaopeng！！！');
+            return;
+        }
         var phone = $('#phoneInput').val().trim();
         var school = $('#schoolInput').val().trim();
         var student = new Student();
